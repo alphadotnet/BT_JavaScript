@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    #dropdown {
+      width: 200px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #dropdown>li {
+      background: blue;
+      margin: 2px;
+    }
+
+    #dropdown>li>a {
+      display: block;
+      color: #FFF;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    #dropdown ul {
+      display: none;
+      padding: 0;
+      margin: 0;
+      background: pink;
+    }
+
+    #dropdown ul li {
+      background-color: pink;
+    }
+
+    #dropdown ul li a {
+      color: #000;
+      text-decoration: none;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="dropdown">
+    <li><a href="#">Trang chủ</a></li>
+    <li>
+      <a href="#">Sản phẩm</a>
+      <ul>
+        <li><a href="#">Gạch cao cấp</a></li>
+        <li><a href="#">Gạch thủ công</a></li>
+        <li><a href="#">Gạch hoa văn</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Tin tức</a>
+      <ul>
+        <li><a href="#">Tin công nghệ</a></li>
+        <li><a href="#">Tin trong nước</a></li>
+        <li><a href="#">Tin thời sự</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Dịch vụ</a>
+      <ul>
+        <li><a href="#">Thiết kế web</a></li>
+        <li><a href="#">Quảng cáo web</a></li>
+        <li><a href="#">Thiết kế đồ họa</a></li>
+      </ul>
+    </li>
+  </ul>
+  <script type="text/javascript">
+    document.querySelectorAll('#dropdown > li > a').forEach(menuLink => {
+      menuLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        let submenu = this.nextElementSibling;
+        if (submenu && submenu.tagName === 'UL') {
+          submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

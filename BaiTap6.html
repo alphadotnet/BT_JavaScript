@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Lời Yêu Thương</title>
+    <style>
+        #container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <button id="yes">CÓ</button>
+        <button id="no">KHÔNG</button>
+    </div>
+
+    <script>
+        let noButton = document.getElementById('no');
+        let yesButton = document.getElementById('yes');
+        let noClickCount = 0;
+
+        function handleNoClick() {
+            noClickCount++;
+            if (noClickCount >= 3) {
+                swapButtons();
+            }
+            alert('Có thể bạn nên chọn lại.');
+        }
+
+        function handleYesClick() {
+            alert('Xin lỗi, bạn không phải là đối tượng của mình.');
+        }
+
+        function swapButtons() {
+            // Swap button positions
+            document.body.innerHTML = `
+                <div id="container">
+                    <button id="yes">CÓ</button>
+                    <button id="no">KHÔNG</button>
+                </div>
+            `;
+
+            // Reattach event listeners to new buttons
+            noButton = document.getElementById('no');
+            yesButton = document.getElementById('yes');
+
+            noButton.addEventListener('click', handleNoClick);
+            yesButton.addEventListener('click', handleYesClick);
+        }
+
+        noButton.addEventListener('click', handleNoClick);
+        yesButton.addEventListener('click', handleYesClick);
+    </script>
+</body>
+
+</html>

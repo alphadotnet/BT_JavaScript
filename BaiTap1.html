@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập Javascript</title>
+</head>
+
+<body>
+    <h1 id="name"></h1>
+    <h2 id="age"></h2>
+
+    <input type="text" id="inputName" placeholder="Nhập tên">
+    <input type="number" id="inputAge" placeholder="Nhập tuổi">
+    <button onclick="displayInfo()">Hiển thị thông tin</button>
+
+    <script>
+        function displayInfo() {
+            var name = document.getElementById("inputName").value;
+            var age = document.getElementById("inputAge").value;
+
+            // Hiển thị tên
+            var nameElement = document.getElementById("name");
+            nameElement.innerHTML = name;
+            nameElement.style.color = "blue";
+            nameElement.style.fontWeight = "bold";
+
+            // Hiển thị tuổi
+            var ageElement = document.getElementById("age");
+            ageElement.innerHTML = age;
+            ageElement.style.textDecoration = "underline";
+        }
+    </script>
+</body>
+
+</html>
